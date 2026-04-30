@@ -91,6 +91,15 @@
     position: relative;
     overflow: hidden;
     padding: 80px 2rem 0;
+    background: url('fachada-nb.png.jpeg') center center/cover no-repeat;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(17,17,17,0.75); /* overlay escuro */
+    z-index: 1;
   }
 
   .hero-bg {
@@ -731,7 +740,7 @@
 <!-- NAV -->
 <nav>
   <div class="logo">
-    <img src="logo-nb-amortecedores.png" alt="NB Amortecedores" class="logo-image">
+    <span style="font-family:'Barlow Condensed',sans-serif; font-size:1.5rem; font-weight:900; color:#fff; letter-spacing:1px;">NB <span style="color:#16AAE8;">AMORTECEDORES</span></span>
   </div>
   <ul>
     <li><a href="#produtos">Produtos</a></li>
@@ -749,7 +758,7 @@
   <div class="hero-content">
     <div class="hero-badge">Especialistas em suspensão</div>
     <h1>
-      <span class="line-gray">Qualidade e durabilidade</span>
+      <span class="line-gray" style="color:#fff;">Qualidade e durabilidade</span>
       NB<br>
       <span class="line-red">Amortecedores</span>
     </h1>
@@ -842,6 +851,44 @@
   <div class="produtos-actions" style="text-align: center; margin-top: 3rem;">
     <button class="btn-primary" onclick="openModal()">Ver Mostruário</button>
   </div>
+
+  <!-- Modal Mostruário -->
+  <div id="modalMostruario" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); align-items:center; justify-content:center;">
+    <div style="background:#181818; padding:32px 24px 24px 24px; border-radius:12px; max-width:95vw; max-height:90vh; overflow:auto; position:relative; box-shadow:0 8px 32px #000a;">
+      <button onclick="closeModal()" style="position:absolute; top:12px; right:16px; background:none; border:none; color:#fff; font-size:2rem; cursor:pointer;">&times;</button>
+      <h2 style="color:#16AAE8; text-align:center; margin-bottom:24px; font-family:'Barlow Condensed',sans-serif; font-size:2rem;">Mostruário de Peças</h2>
+      <div style="display:flex; flex-wrap:wrap; gap:24px; justify-content:center;">
+        <div style="display:flex; flex-direction:column; align-items:center; max-width:320px; width:100%;">
+          <img src="amortecedor.png.jpg" alt="Amortecedor NB" style="max-width:320px; width:100%; border-radius:8px; box-shadow:0 2px 16px #0007; background:#222; margin-bottom:8px;">
+          <span style="color:#fff; margin-top:4px; font-size:1rem;">Amortecedores</span>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center; max-width:320px; width:100%;">
+          <img src="caixa-trw.png.jpg" alt="Caixa de Direção" style="max-width:320px; width:100%; border-radius:8px; box-shadow:0 2px 16px #0007; background:#222; margin-bottom:8px;">
+          <span style="color:#fff; margin-top:4px; font-size:1rem;">Caixas de direção</span>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center; max-width:320px; width:100%;">
+          <img src="peças.png.jpg" alt="Peças Gerais" style="max-width:320px; width:100%; border-radius:8px; box-shadow:0 2px 16px #0007; background:#222; margin-bottom:8px;">
+          <span style="color:#fff; margin-top:4px; font-size:1rem;">Peças gerais</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById('modalMostruario').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      document.getElementById('modalMostruario').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    // Fecha modal ao clicar fora do conteúdo
+    window.addEventListener('click', function(e) {
+      var modal = document.getElementById('modalMostruario');
+      if (modal && e.target === modal) closeModal();
+    });
+  </script>
 </section>
 
 <!-- DIFERENCIAIS -->
@@ -957,7 +1004,7 @@
     </div>
   </div>
   <div class="map-container">
-    <iframe src="https://www.google.com/maps/place/NB+Amortecedores+solu%C3%A7%C3%B5es+automotivas/@-28.2627773,-48.7024345,960m/data=!3m1!1e3!4m6!3m5!1s0x9526b5239bb0b78f:0x3986bb8d2203cc66!8m2!3d-28.2627524!4d-48.702412!16s%2Fg%2F11h8l6s343?hl=pt-BR&entry=ttu&g_ep=EgoyMDI2MDQyMi4wIKXMDSoASAFQAw%3D%3D" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d345.8938938938939!2d-48.7024345!3d-28.2627773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9526b5239bb0b78f%3A0x3986bb8d2203cc66!2sNB%20Amortecedores%20solu%C3%A7%C3%B5es%20automotivas!5e0!3m2!1spt-BR!2sbr!4v1714320000000!5m2!1spt-BR!2sbr" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
   </div>
 </section>
 
