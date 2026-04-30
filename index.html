@@ -888,6 +888,16 @@
       var modal = document.getElementById('modalMostruario');
       if (modal && e.target === modal) closeModal();
     });
+
+    function enviarParaWhatsApp() {
+      const nome = document.getElementById('nome').value;
+      const telefone = document.getElementById('telefone').value;
+      const assunto = document.getElementById('assunto').value;
+      const mensagem = document.getElementById('mensagem').value;
+      const texto = `Olá, meu nome é ${nome}. Telefone: ${telefone}. Assunto: ${assunto}. Mensagem: ${mensagem}`;
+      const url = `https://wa.me/5548991647070?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    }
   </script>
 </section>
 
@@ -981,15 +991,15 @@
     <div class="contato-form">
       <div class="form-group">
         <label>Nome completo</label>
-        <input type="text" placeholder="Seu nome">
+        <input type="text" id="nome" placeholder="Seu nome">
       </div>
       <div class="form-group">
         <label>Telefone / WhatsApp</label>
-        <input type="tel" placeholder="48 99164-7070">
+        <input type="tel" id="telefone" placeholder="48 99164-7070">
       </div>
       <div class="form-group">
         <label>Assunto</label>
-        <select>
+        <select id="assunto">
           <option>Orçamento de peças</option>
           <option>Serviço na mecânica</option>
           <option>Dúvidas sobre produtos</option>
@@ -998,9 +1008,9 @@
       </div>
       <div class="form-group">
         <label>Mensagem</label>
-        <textarea placeholder="Descreva o que você precisa..."></textarea>
+        <textarea id="mensagem" placeholder="Descreva o que você precisa..."></textarea>
       </div>
-      <button class="btn-primary" style="width: 100%; padding: 16px;">Enviar mensagem</button>
+      <button class="btn-primary" style="width: 100%; padding: 16px;" onclick="enviarParaWhatsApp()">Enviar mensagem</button>
     </div>
   </div>
   <div class="map-container">
